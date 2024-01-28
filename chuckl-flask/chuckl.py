@@ -14,8 +14,8 @@ if ENV_FILE:
 app = Flask(__name__)
 
 db = DB("database")
-user = User(db.db)
-nav = ImageNavigator("static/memes", "static/imagetags.json", db.db)
+user = User(db)
+nav = ImageNavigator("static/memes", "static/imagetags.json", db)
 
 oauth = OAuth(app)
 

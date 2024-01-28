@@ -3,7 +3,7 @@ import json
 
 class ImageNavigator:
     def __init__(self, image_dir, json_file, db):
-        self.db = db
+        self.db = db.db
         self.image_dir = image_dir
         self.json_file = json_file
         self.image_data = self.load_image_data()
@@ -13,6 +13,8 @@ class ImageNavigator:
     def add_meme(self, fname, tags):
         for tag in tags:
             self.db.execute("INSERT OR IGNORE INTO memes VALUES (?, ?);", (fname, tag))
+        self.db.commit()
+
 
     def load_image_data(self):
         with open(self.json_file) as f:

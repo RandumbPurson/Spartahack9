@@ -1,6 +1,6 @@
 class User:
     def __init__(self, db) -> None:
-        self.db = db
+        self.db = db.db
 
     def login(self, username):
         self.username = username
@@ -10,5 +10,6 @@ class User:
             return "500"
         self.db.execute("INSERT INTO users VALUES (?, ?, ?)", (self.username, res["img"], res["liked"]))
         print(self.db.execute("SELECT * FROM users").fetchall())
+        self.db.commit()
         return "200"
 

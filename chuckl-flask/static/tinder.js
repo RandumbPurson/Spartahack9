@@ -22,7 +22,7 @@ var App = {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({liked: true, img: Images.img})
+      body: JSON.stringify({liked: liked, img: Images.img})
     })
     var meme = await fetch("/memes");
     Images.add(meme);
