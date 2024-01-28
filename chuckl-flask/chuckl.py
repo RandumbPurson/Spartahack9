@@ -4,6 +4,7 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from NextImg import ImageNavigator
 from User import User
+from Recommender import Recommender
 from DB import DB
 from dotenv import find_dotenv, load_dotenv
 
@@ -14,6 +15,9 @@ if ENV_FILE:
 app = Flask(__name__)
 
 db = DB("database")
+recommender = Recommender(db)
+meme_idx, user_idx, train_arr = recommender.get_user_prefs()
+print(recommender.recommend(train_arr))
 user = User(db)
 nav = ImageNavigator("static/memes", "static/imagetags.json", db)
 
