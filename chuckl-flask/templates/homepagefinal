@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chuckl - Home</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="https://pbs.twimg.com/media/GE5IZicXEAAq0j8?format=jpg&name=small" alt="Logo"> <!-- Insert your logo image here -->
+    </div>
+    <h1>CHUCKL.</h1> <!-- Title with font Promo Regular -->
+    <a href="#about" class="about-link">About</a> <!-- About link -->
+  </div>
+  <div class="content">
+    <!-- Content of the page goes here -->
+  </div>
+  <div class="login-container">
+    <p class="above-buttons">why Laugh when you can ChuckL.</p> <!-- Text above buttons -->
+    <div class="button-container">
+      <a href="#login" class="login-button">LOGIN</a> <!-- Login button -->
+      <a href="#signup" class="signup-button">SIGN UP</a> <!-- Signup button -->
+    </div>
+  </div>
+</body>
+</html>
