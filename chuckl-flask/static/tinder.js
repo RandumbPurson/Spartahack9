@@ -3,8 +3,10 @@ var animationEndEvent = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanim
 var Images = {
   wrap: $('#images'),
   add: function(res){
-    console.log(res)
-    this.wrap.append("<div class='person'><span><src='" + res + "' /></span></div>");
+    res.text().then(img => {
+      console.log(img)
+      this.wrap.append("<div class='person'><img src='static\/memes\/"+img+"' /></div>");
+    })
   }
 }
 
@@ -45,7 +47,7 @@ $(".button.yes").on("click", function() {
   });
 $(".button.no").on("click", function() {
     console.log("testNo")
-    App.like(true);
+    App.like(false);
   });
 
 $(document).ready(function() {
