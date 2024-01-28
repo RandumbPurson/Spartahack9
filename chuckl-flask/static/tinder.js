@@ -2,9 +2,10 @@ var animationEndEvent = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanim
 
 var Images = {
   wrap: $('#images'),
+  img: null,
   add: function(res){
     res.text().then(img => {
-      console.log(img)
+      Images.img = img
       this.wrap.append("<div class='person'><img src='static\/memes\/"+img+"' /></div>");
     })
   }
@@ -15,6 +16,14 @@ var App = {
   like: async function(liked){
     var animate = liked ? 'animateYes' : 'animateNo';
     var self = this;
+    await fetch("/memes", {
+      method: "PUT",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({liked: true, img: Images.img})
+    })
     var meme = await fetch("/memes");
     Images.add(meme);
     if (!this.blocked) {
@@ -42,11 +51,9 @@ var Phone = {
 }
 
 $(".button.yes").on("click", function() {
-    console.log("test")
     App.like(true);
   });
 $(".button.no").on("click", function() {
-    console.log("testNo")
     App.like(false);
   });
 
