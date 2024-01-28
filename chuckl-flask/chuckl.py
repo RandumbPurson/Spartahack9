@@ -5,16 +5,21 @@ from User import User
 app = Flask(__name__)
 
 user = User()
+nav = ImageNavigator("static/memes", "static/imagetags.json")
 
 @app.route("/")
 def hello_world():
     return render_template("index.html")
 
-@app.route("/memes", methods=["GET", "PUT"])
+@app.route("/swipe")
+def swipe():
+    return render_template("tinder.html")
+
+@app.route("/memes")
 def next_meme():
-    print(request)
-    if request.method == "GET":
-        return nav.find_next_unseen_image()
-    if request.method == "PUT":
-        user.updatePrefs(request.get_json())
+    return nav.find_next_unseen_image()
+
+    # if request.method == "GET":
+    # if request.method == "PUT":
+    #     user.updatePrefs(request.get_json())
         

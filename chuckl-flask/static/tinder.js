@@ -1,27 +1,20 @@
-// $('a[href*=#]').click(function(){
-//   return false;
-// });
-  
-
 var animationEndEvent = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
-var Person = {
-  wrap: $('#people'),
-  add: function(image){
-    this.wrap.append("<div class='person'><src='" + image + "' /></div>");
+var Images = {
+  wrap: $('#images'),
+  add: function(res){
+    console.log(res)
+    this.wrap.append("<div class='person'><span><src='" + res + "' /></span></div>");
   }
 }
 
 var App = {
-  yesButton: $('.button.yes .trigger'),
-  noButton: $('.button.no .trigger'),
   blocked: false,
   like: async function(liked){
     var animate = liked ? 'animateYes' : 'animateNo';
     var self = this;
-    console.log("test")
-    var person = await fetch("/memes");
-    Person.add(person);
+    var meme = await fetch("/memes");
+    Images.add(meme);
     if (!this.blocked) {
       this.blocked = true;           
       $('.person').eq(0).addClass(animate).one(animationEndEvent, function() {
@@ -46,18 +39,18 @@ var Phone = {
   }
 }
 
-App.yesButton.on('click', function() {
-  App.like(true);
-});
-
-App.noButton.on('click', function() {
-  App.like(false);
-});
+$(".button.yes").on("click", function() {
+    console.log("test")
+    App.like(true);
+  });
+$(".button.no").on("click", function() {
+    console.log("testNo")
+    App.like(true);
+  });
 
 $(document).ready(function() {
   fetch("/memes").then(img => {
-    console.log("Test")
-    Person.add(img)
+    Images.add(img)
     Phone.updateClock();
     setInterval('Phone.updateClock()', 1000);
   })

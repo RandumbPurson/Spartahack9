@@ -115,12 +115,12 @@ body {
   border: 1px solid transparent;
 }
 
-#people, .person {
+#images, .person {
   width: 250px;
   height: 265px;
 }
 
-#people {
+#images {
   position: relative;
   margin: 0 auto;
 }
