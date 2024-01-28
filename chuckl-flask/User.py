@@ -4,8 +4,9 @@ class User:
         self.disliked = []
 
     def updatePrefs(self, res):
-        if res.liked:
-            self.liked.append(res.img)
+        if res["liked"]:
+            self.liked.append(res["img"])
         else:
-            self.disliked.append(res.img)
+            self.disliked.append(res["img"])
+        return self.liked, self.disliked
 

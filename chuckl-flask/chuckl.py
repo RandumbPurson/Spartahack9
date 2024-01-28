@@ -15,9 +15,12 @@ def hello_world():
 def swipe():
     return render_template("tinder.html")
 
-@app.route("/memes")
+@app.route("/memes", methods=["GET", "PUT"])
 def next_meme():
-    return nav.find_next_unseen_image()
+    if request.method == "GET":
+        return nav.find_next_unseen_image()
+    if request.method == "PUT":
+        return user.updatePrefs(request.get_json())
 
     # if request.method == "GET":
     # if request.method == "PUT":
