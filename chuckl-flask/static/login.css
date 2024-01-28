@@ -1,35 +1,43 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FCF6F5;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FCF6F5;
+}
+
 .main-header {
-    background-color: #F4D6E3; /* Pastel yellow background for the main header */
-    padding: 20px;
+  background-color: #f8e6ee; /* Pastel yellow background for the main header */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 h1 {
-    font-size: 60px;
-    margin: 0;
-    color: #635E75; /* Pastel yellow color for CHUCKL */
-    font-family: 'Bauhaus 93', sans-serif; /* Changed font to Promo Regular */
-    margin-left: 10px; /* Added margin between the logo and the title */
+  font-size: 60px;
+  margin: 0;
+  color: #635E75; /* Pastel yellow color for CHUCKL */
+  font-family: 'Bauhaus 93', sans-serif; /* Changed font to Promo Regular */
+  margin-left: 10px; /* Added margin between the logo and the title */
 }
+
 .form-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Center vertically in the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://pbs.twimg.com/media/GE46q75aYAAEpqH?format=jpg&name=large');
+  height: 100vh; /* Center vertically in the viewport */
 }
 
 /* Form styling */
 form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
 }
+
 /* Form fields */
 input[type="text"],
 input[type="submit"] {
@@ -58,3 +66,11 @@ input[type="submit"]:focus {
   outline: none;
 }
 
+.home-button {
+  font-size: 20px;
+  color: #635E75;
+  text-decoration: none;
+  font-family: 'Bauhaus 93', sans-serif; /* Apply Bauhaus 93 font */
+  margin-top: 10px; /* Move the button down */
+  margin-right: 10px; /* Adjust the right margin */
+}

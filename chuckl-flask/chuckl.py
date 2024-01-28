@@ -31,7 +31,11 @@ oauth.register(
 
 @app.route("/")
 def hello_world():
-    return render_template("index.html")
+    return render_template("homepagefinal.html")
+
+@app.route("/about")
+def about_page():
+    return render_template("aboutfinal.html")
 
 @app.route("/swipe")
 def swipe():
